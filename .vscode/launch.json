@@ -16,7 +16,7 @@
         "--dataset.episode_time_s=20",
         "--dataset.reset_time_s=10",
         "--policy.path=output/train/demo6/checkpoints/020000/pretrained_model",
-        "--robot.cameras={front: {type: intelrealsense, serial_number_or_name: '146222252404', width: 640, height: 480, fps: 30}}",
+        "--robot.cameras={front: {type: intelrealsense, serial_number_or_name: '146xxxx', width: 640, height: 480, fps: 30}}",
         "--teleop.type=so101_leader",
         "--teleop.port=/dev/ttyACM0",
         "--teleop.id=my_awesome_leader_arm"
@@ -38,7 +38,7 @@
         "--dataset.episode_time_s=20",
         "--dataset.reset_time_s=10",
         "--policy.path=outputs/train/demot/checkpoints/last/pretrained_model",
-        "--robot.cameras={top: {type: intelrealsense, serial_number_or_name: '146222252404', width: 640, height: 480, fps: 30}, front: {type: intelrealsense, serial_number_or_name: '146222254779', width: 640, height: 480, fps: 30}}",
+        "--robot.cameras={top: {type: intelrealsense, serial_number_or_name: '146xxxxx', width: 640, height: 480, fps: 30}, front: {type: intelrealsense, serial_number_or_name: '146xxxxx', width: 640, height: 480, fps: 30}}",
         "--teleop.type=so101_leader",
         "--teleop.port=/dev/ttyACM0",
         "--teleop.id=my_awesome_leader_arm"
