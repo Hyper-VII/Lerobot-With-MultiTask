@@ -1,0 +1,70 @@
+{
+  "version": "0.2.0",
+  "configurations": [
+    {
+      "name": "lerobot推理",
+      "type": "debugpy",
+      "request": "launch",
+      "program": "${file}",
+      "console": "integratedTerminal",
+      "args": [
+        "--robot.type=so101_follower",
+        "--robot.port=/dev/ttyACM1",
+        "--robot.id=my_awesome_follower_arm",
+        "--dataset.single_task=Grab the paper box",
+        "--dataset.repo_id=Gutilence/eval_deemo_test",
+        "--dataset.episode_time_s=20",
+        "--dataset.reset_time_s=10",
+        "--policy.path=output/train/demo6/checkpoints/020000/pretrained_model",
+        "--robot.cameras={front: {type: intelrealsense, serial_number_or_name: '146222252404', width: 640, height: 480, fps: 30}}",
+        "--teleop.type=so101_leader",
+        "--teleop.port=/dev/ttyACM0",
+        "--teleop.id=my_awesome_leader_arm"
+      ],
+      "justMyCode": false
+    },
+    {
+      "name": "lerobot多相机推理",
+      "type": "debugpy",
+      "request": "launch",
+      "program": "${file}",
+      "console": "integratedTerminal",
+      "args": [
+        "--robot.type=so101_follower",
+        "--robot.port=/dev/ttyACM1",
+        "--robot.id=my_awesome_follower_arm",
+        "--dataset.single_task=Grab a pack of paper",
+        "--dataset.repo_id=Gutilence/eval_demo10and11_testt",
+        "--dataset.episode_time_s=20",
+        "--dataset.reset_time_s=10",
+        "--policy.path=outputs/train/demot/checkpoints/last/pretrained_model",
+        "--robot.cameras={top: {type: intelrealsense, serial_number_or_name: '146222252404', width: 640, height: 480, fps: 30}, front: {type: intelrealsense, serial_number_or_name: '146222254779', width: 640, height: 480, fps: 30}}",
+        "--teleop.type=so101_leader",
+        "--teleop.port=/dev/ttyACM0",
+        "--teleop.id=my_awesome_leader_arm"
+      ],
+      "justMyCode": false
+    },
+    {
+            "name": "Python: 训练",
+            "type": "debugpy",
+            "request": "launch",
+            "program": "${file}",
+            "console": "integratedTerminal",
+            "args": [
+                "--dataset.repo_id=Gutilence/demo10, Gutilence/demo11",
+                // "--dataset.repo_id=Gutilence/demo10",
+                "--output_dir=outputs/train/demott",
+                "--job_name=demo6",
+                "--policy.device=cuda",
+                "--policy.path=./smolvla",
+                "--policy.repo_id=${env:HF_USER}/my_policy_demot"  
+            ],
+            "justMyCode": false,
+            "console": "integratedTerminal",
+            "env": {
+                "HF_USER": "${env:HF_USER}"  // 确保环境变量传递
+            }
+        }
+  ]
+}
